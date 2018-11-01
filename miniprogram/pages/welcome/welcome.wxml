@@ -1,0 +1,8 @@
+<view class="page">
+    <view class="user-info-box">
+        <button open-type="getUserInfo" bindgetuserinfo="getUserInfoCb" class="avatar"></button>
+        <text class="nickName">{{nickName}}</text>
+    </view>
+    <view class="tips">{{tips}}</view>
+    <navigator url="">hh</navigator>
+</view>
