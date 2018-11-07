@@ -1,0 +1,1 @@
+-[ ] 关于vue关于[小程序](https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html#pageprototypesetdataobject-data-function-callback)的声明周期
