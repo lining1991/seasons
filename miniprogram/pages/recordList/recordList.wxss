@@ -1,0 +1,13 @@
+.page{
+    padding: 15px;
+}
+.list-title{
+    line-height: 25px;
+    font-weight: bold;
+    border-bottom: 1rpx solid #ddd;
+}
+.list-item{
+    font-size: 12px;
+    line-height: 15px;
+    border-bottom: 1rpx solid #eee;
+}

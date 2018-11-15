@@ -1,8 +1,10 @@
 <view class="page">
     <view class="user-info-box">
-        <button open-type="getUserInfo" bindgetuserinfo="getUserInfoCb" class="avatar" style="background-image: url({{avatarUrl}}">需要获取您的授权</button>
-        <text class="nickName">{{nickName}}</text>
+        <button open-type="getUserInfo" bindgetuserinfo="getUserInfoCb" class="auth-btn" wx:if="{{!avatarUrl}}">需要获取您的授权</button>
+        <image class="avatar-box" src="{{avatarUrl}}" mode="aspectFill"></image>
+        <view class="nick-name">{{nickName}}</view>
     </view>
     <view class="tips">{{tips}}</view>
-    <navigator url="">hh</navigator>
+    <navigator url="" class="link-button">去记录</navigator>
+    <navigator url="../recordList/recordList" class="link-button">生活@愿景</navigator>
 </view>

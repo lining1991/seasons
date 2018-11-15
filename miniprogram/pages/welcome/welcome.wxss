@@ -1,3 +1,28 @@
-.user-info-box{
-    
+.auth-btn{
+    background: transparent;
+    width: 10em;
+    margin: 50rpx auto 0;
+}
+.avatar-box{
+    width: 200rpx;
+    height: 200rpx;
+    text-align: center;
+    border-radius: 100%;
+    display: block;
+    margin: 10px auto 0;
+}
+.nick-name{
+    text-align: center;
+}
+.tips{
+    padding: 0 15px;
+    text-align: center;
+}
+.link-button{
+    width: 4rem;
+    text-align: center;
+    margin: 10px auto 0;
+    border: 1rpx solid #eee;
+    line-height: 30px;
+    border-radius: 3px;
 }

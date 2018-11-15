@@ -6,7 +6,7 @@ Page({
         tips:'',
         avatarUrl: './user-unlogin.png',
         logged: false,
-        nickName: 'haha'
+        nickName: ''
     },
     onLoad () {
         console.log('onload事件被触发了');
@@ -21,8 +21,10 @@ Page({
                 if (res.authSetting['scope.userInfo']) {
                     wx.getUserInfo({
                         success: res => {
+                            console.log(res.userInfo);
                             this.setData({
                                 avatarUrl: res.userInfo.avatarUrl,
+                                nickName: res.userInfo.nickName,
                                 userInfo: res.userInfo
                             })
                         }
@@ -38,6 +40,7 @@ Page({
             this.setData({
                 logged: true,
                 avatarUrl: e.detail.userInfo.avatarUrl,
+                nickName: e.detail.userInfo.nickName,
                 userInfo: e.detail.userInfo
             })
         }

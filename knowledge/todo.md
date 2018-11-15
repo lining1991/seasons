@@ -1,1 +1,3 @@
--[ ] 关于vue关于[小程序](https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html#pageprototypesetdataobject-data-function-callback)的声明周期
+-[] 关于vue关于[小程序](https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html#pageprototypesetdataobject-data-function-callback)的声明周期
+-[] 需要找个去记录的图标
+-[] 关于是否展示授权的按钮还有些问题
