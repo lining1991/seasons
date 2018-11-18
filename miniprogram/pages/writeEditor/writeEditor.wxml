@@ -14,7 +14,7 @@
                 <image class="upload-image" mode="aspectFit" src="{{item}}" data-id="{{index}}"></image>
                 <icon type="cancel" size="15" color="red" bindtap="deleteImage" data-file="{{index}}"/>
             </view>
-            <view class="upload-btn square-box" bindtap="uploadImage">+</view>
+            <view class="upload-btn square-box" bindtap="uploadImage" hidden="{{itemUrlArr.length >= maxImgNum ? true : false}}">+</view>
         </view>
     </form>
 </view>

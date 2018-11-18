@@ -1,5 +1,9 @@
 const app = getApp();
-
+// 1.做图片上传的时候，没有考虑到①图片上传多次时index的处理，即先上传3张再上传两张 ②以及删除了某一张图片，再重新上传时  这两种场景下的图片在云端存储的路径问题
+// 1.1 问题在于如何确保图片在云端的路径+名字是唯一的
+// 2.关于data-*属性的一些问题 不能用data-驼峰单词 data-active data-type
+// 3.动态绑定类名
+// 4.对象的名字是一个变量
 Page({
     data: {
         content: '',
@@ -7,16 +11,19 @@ Page({
         detailType: '',
         seasons: ['春', '夏', '秋', '冬'],
         types: ['愿景', '生活'],
-        itemUrlArr: [],
+        itemUrlArr: [], // 图片的临时路径
         articleId: 'abc',
-        imgIdArr: [],
-        activeIndex1: 0,
-        activeIndex2: 0
+        imgIdArr: [], // 图片在云端存储的fileID 可以用来删除图片 以及绑定图片和这篇文章的关系
+        activeIndex1: 0, // 用来控制季节标签选中的
+        activeIndex2: 0, // 用来控制类型标签选中的
+        maxImgNum: 9, // 所允许上传的最大图片张数
+        imgCloudFilePathId: 0// 用来控制图片在云端存储时有一个唯一的名字
     },
     onLoad (options) {
         // this.setData({
         //     articleId: options.articleId
         // })
+        // 需要设置imgCloudFilePathId
     },
     selectTypes (event) {
         console.log(event);
@@ -28,9 +35,21 @@ Page({
             [keys]: values
         })
     },
+    // 生成在云端存储的唯一的路径或者说是名字
+    generateUUID () {
+        // 用哪一种方式更好呢
+        // return '_' + Math.random().toString(36).substr(2, 9);
+        let imgCloudFilePathId = this.data.imgCloudFilePathId + 1;
+        this.setData({
+            imgCloudFilePathId
+        });
+        console.log('imgCloudFilePathId', imgCloudFilePathId);
+        return imgCloudFilePathId;
+    },
     uploadImage () {
+        let count = this.data.maxImgNum - this.data.itemUrlArr.length;
         wx.chooseImage({
-            count: 9,
+            count,
             sizeType: ['compressed'],
             sourceType: ['album', 'camera'],
             success: (res) => {
@@ -43,9 +62,10 @@ Page({
                 const cloudPaths = [];
                 tempFilePaths.forEach((tempPath, index) => {
                     // todo: 这里用二维数组 还是用map
-                    // 尾缀
+                    // 尾缀 获取图片格式
                     let infix = tempPath.match(/\.[^.]+?$/)
-                    cloudPaths.push([`${articleId}-image-${index}${infix}`, tempPath]);
+                    let imgCloudFilePathId = this.generateUUID()
+                    cloudPaths.push([`${articleId}-image-${imgCloudFilePathId}${infix}`, tempPath]);
                 })
                 cloudPaths.forEach((item, index) => {
                     let cloudPath = item[0];
@@ -58,15 +78,19 @@ Page({
                         // 储存远程返回的图片文件ID 提交时使用
                         let key1 =  `imgIdArr[${index}]`;
                         let key2 =  `itemUrlArr[${index}]`;
+                        let afterUploadImgIdArr = this.data.imgIdArr;
+                        afterUploadImgIdArr.push(res.fileID);
+                        let afterUploadItemUrlArr = this.data.itemUrlArr;
+                        afterUploadItemUrlArr.push(filePath);
                         console.log(key2);
                         this.setData({
-                          [key1]: res.fileID  
+                            imgIdArr: afterUploadImgIdArr  
                         });
                         console.log(this.data.itemUrlArr);
                         // 设置图片在视图层展示
                         this.setData({
-                            [key2]: filePath
-                        });
+                            itemUrlArr: afterUploadItemUrlArr  
+                        })
                         if (index === cloudPaths.length -1) {
                             wx.hideLoading();
                         }
