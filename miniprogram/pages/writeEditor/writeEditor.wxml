@@ -2,9 +2,9 @@
     <form action="">
         <view class="form-head">
             <view class="tags-wrapper">
-                <button wx:for="{{seasons}}" wx:key="item" class="tags">{{item}}</button>
+                <button wx:for="{{seasons}}" wx:key="item" bindtap="selectTypes" class="tags, {{index === activeIndex1 ? 'active' : ''}}" data-index="{{index}}" data-types="activeIndex1">{{item}}</button>
                 <text class="divider">|</text>
-                <button wx:for="{{types}}" wx:key="item" class="tags">{{item}}</button>
+                <button wx:for="{{types}}" wx:key="item" bindtap="selectTypes" class="tags,  {{index === activeIndex2 ? 'active' : ''}}" data-index="{{index}}" data-types="activeIndex2">{{item}}</button>
             </view>
             <button plain="{{true}}" form-type="submit" class="submit-btn">保 存</button>
         </view>

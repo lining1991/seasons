@@ -24,6 +24,10 @@ textarea{
     margin: 0 4px;
     background: transparent;
 }
+.tags.active{
+    border: 1px solid #f04848;
+    color: #f04848;
+}
 .divider{
     margin: 0 5px;
     display: inline-block;

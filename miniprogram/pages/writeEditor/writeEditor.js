@@ -9,12 +9,24 @@ Page({
         types: ['愿景', '生活'],
         itemUrlArr: [],
         articleId: 'abc',
-        imgIdArr: []
+        imgIdArr: [],
+        activeIndex1: 0,
+        activeIndex2: 0
     },
     onLoad (options) {
         // this.setData({
         //     articleId: options.articleId
         // })
+    },
+    selectTypes (event) {
+        console.log(event);
+        let dataset = event.target.dataset;
+        let values = dataset.index;
+        let keys = dataset.types;
+        console.log(keys, values);
+        this.setData({
+            [keys]: values
+        })
     },
     uploadImage () {
         wx.chooseImage({
@@ -88,7 +100,6 @@ Page({
                 itemUrlArr: imgArr
             });
             // handle success
-            console.log(res.fileList)
             console.log('删除图片成功')
         }).catch(error => {
            console.log('删除图片出现了问题', error)
