@@ -11,8 +11,8 @@
         <textarea name="content" id="" maxlength="-1" placeholder="开始记录你的生活吧" auto-height="false"></textarea>
         <view class="upload-wrapper">
             <view class="square-box" wx:for="{{itemUrlArr}}" wx:key="item">
-                <image class="upload-image" mode="aspectFit" src="{{item}}"></image>
-                <icon type="cancel" size="15" color="red"/>
+                <image class="upload-image" mode="aspectFit" src="{{item}}" data-id="{{index}}"></image>
+                <icon type="cancel" size="15" color="red" bindtap="deleteImage" data-file="{{index}}"/>
             </view>
             <view class="upload-btn square-box" bindtap="uploadImage">+</view>
         </view>

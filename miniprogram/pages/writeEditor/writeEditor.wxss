@@ -48,6 +48,7 @@ textarea{
 }
 .square-box icon{
     position: absolute;
+    z-index: 999;
     top: -3px;
     right: -5px;
 }
