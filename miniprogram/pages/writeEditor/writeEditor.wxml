@@ -1,0 +1,20 @@
+<view class="page">
+    <form action="">
+        <view class="form-head">
+            <view class="tags-wrapper">
+                <button wx:for="{{seasons}}" wx:key="item" class="tags">{{item}}</button>
+                <text class="divider">|</text>
+                <button wx:for="{{types}}" wx:key="item" class="tags">{{item}}</button>
+            </view>
+            <button plain="{{true}}" form-type="submit" class="submit-btn">保 存</button>
+        </view>
+        <textarea name="content" id="" maxlength="-1" placeholder="开始记录你的生活吧" auto-height="false"></textarea>
+        <view class="upload-wrapper">
+            <view class="square-box" wx:for="{{itemUrlArr}}" wx:key="item">
+                <image class="upload-image" mode="aspectFit" src="{{item}}"></image>
+                <icon type="cancel" size="15" color="red"/>
+            </view>
+            <view class="upload-btn square-box" bindtap="uploadImage">+</view>
+        </view>
+    </form>
+</view>

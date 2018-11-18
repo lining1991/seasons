@@ -1,14 +1,10 @@
 <view class="page">
     <view class="list-box">
-        <view class="list-title">春</view>
-        <view class="list-wrapper">
-            <navigator url="" class="list-item">这是一篇文章标题</navigator>
-            <navigator url="" class="list-item">这是一篇文章标题</navigator>    
-        </view>
-        <view class="list-title">夏</view>
-        <view class="list-wrapper">
-            <navigator url="" class="list-item">这是一篇文章标题</navigator>
-            <navigator url="" class="list-item">这是一篇文章标题</navigator>    
-        </view>
+       <view wx:for="{{recordsList}}" wx:for-index="index" wx:for-item="item" wx:key="type">
+            <view class="list-title">{{item.type}}</view>
+            <view class="list-wrapper">
+                <navigator url="../recordDetail/recordDetail?articleId={{record.articleId}}" class="list-item" wx:for="{{item.list}}" wx:for-item="record" wx:key="articleId">{{record.title}}</navigator>
+            </view>
+        </view> 
     </view>
 </view>
