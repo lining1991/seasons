@@ -1,11 +1,13 @@
 <view class="page">
-    <form action="">
+    <form bindsubmit="submitForm">
         <view class="form-head">
             <view class="tags-wrapper">
                 <button wx:for="{{seasons}}" wx:key="item" bindtap="selectTypes" class="tags, {{index === activeIndex1 ? 'active' : ''}}" data-index="{{index}}" data-types="activeIndex1">{{item}}</button>
                 <text class="divider">|</text>
                 <button wx:for="{{types}}" wx:key="item" bindtap="selectTypes" class="tags,  {{index === activeIndex2 ? 'active' : ''}}" data-index="{{index}}" data-types="activeIndex2">{{item}}</button>
             </view>
+            <input type="text" name="seasons" value="{{activeIndex1}}" hidden/>
+            <input type="text" name="types" value="{{activeIndex2}}" hidden/>
             <button plain="{{true}}" form-type="submit" class="submit-btn">保 存</button>
         </view>
         <textarea name="content" id="" maxlength="-1" placeholder="开始记录你的生活吧" auto-height="false"></textarea>
@@ -14,7 +16,11 @@
                 <image class="upload-image" mode="aspectFit" src="{{item}}" data-id="{{index}}"></image>
                 <icon type="cancel" size="15" color="red" bindtap="deleteImage" data-file="{{index}}"/>
             </view>
+            <!-- 这样存储数组也可以，但是担心服务端解析的时候会打乱数组存储的顺序 -->
+            <input type="text" name="imgFileIdArr[{{index}}]" value="{{item}}" wx:for="{{imgFileIdArr}}" wx:key="item" hidden/>
+            <input type="text" name="imgGlobalId" value="{{imgCloudFilePathId}}" hidden/>
             <view class="upload-btn square-box" bindtap="uploadImage" hidden="{{itemUrlArr.length >= maxImgNum ? true : false}}">+</view>
         </view>
     </form>
 </view>
+

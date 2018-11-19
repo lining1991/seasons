@@ -13,7 +13,8 @@ Page({
         types: ['愿景', '生活'],
         itemUrlArr: [], // 图片的临时路径
         articleId: 'abc',
-        imgIdArr: [], // 图片在云端存储的fileID 可以用来删除图片 以及绑定图片和这篇文章的关系
+        imgFileIdArr: [], // 图片在云端存储的fileID 可以用来删除图片 以及绑定图片和这篇文章的关系
+        imgFileIdArrVal: '',
         activeIndex1: 0, // 用来控制季节标签选中的
         activeIndex2: 0, // 用来控制类型标签选中的
         maxImgNum: 9, // 所允许上传的最大图片张数
@@ -24,6 +25,11 @@ Page({
         //     articleId: options.articleId
         // })
         // 需要设置imgCloudFilePathId
+    },
+    // 点击保存按钮，提交表单
+    submitForm (e) {
+        console.log(this.data.imgFileIdArr);
+        console.log('form发生了submit事件，携带数据为：', e.detail.value)
     },
     selectTypes (event) {
         console.log(event);
@@ -75,17 +81,21 @@ Page({
                         filePath
                     })
                     .then(res => {
+                        console.log('res', res);
                         // 储存远程返回的图片文件ID 提交时使用
                         let key1 =  `imgIdArr[${index}]`;
                         let key2 =  `itemUrlArr[${index}]`;
-                        let afterUploadImgIdArr = this.data.imgIdArr;
-                        afterUploadImgIdArr.push(res.fileID);
+                        let afterUploadImgFileIdArr = this.data.imgFileIdArr;
+                        afterUploadImgFileIdArr.push(res.fileID);
                         let afterUploadItemUrlArr = this.data.itemUrlArr;
                         afterUploadItemUrlArr.push(filePath);
                         console.log(key2);
                         this.setData({
-                            imgIdArr: afterUploadImgIdArr  
-                        });
+                            imgFileIdArr: afterUploadImgFileIdArr  
+                        })
+                        // this.setData({
+
+                        // })
                         console.log(this.data.itemUrlArr);
                         // 设置图片在视图层展示
                         this.setData({
@@ -110,7 +120,7 @@ Page({
     },
     deleteImage (event) {
         let index = event.target.dataset.file;
-        let fileId = this.data.imgIdArr[index];
+        let fileId = this.data.imgFileIdArr[index];
         let fileList = [fileId];
         let key = `itemUrlArr[${index}]`;
         console.log(event);

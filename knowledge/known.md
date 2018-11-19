@@ -9,3 +9,6 @@
 ```html
    <view class="tags {{index === num : 'active' : ''}}"></view>  
 ```html
+3. 虽然在开发文档中，组件一项中，form章节没有提到点击提交按钮的时候，textarea的内容也可以被携带，但实际上是有的。
+4. input元素没有type="hidden"这个类型 用<input type="text" name="seasons" value="kk" hidden/> 就好了 注意有闭合结束符
+5. 
