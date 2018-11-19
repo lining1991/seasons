@@ -29,7 +29,20 @@ Page({
     // 点击保存按钮，提交表单
     submitForm (e) {
         console.log(this.data.imgFileIdArr);
-        console.log('form发生了submit事件，携带数据为：', e.detail.value)
+        console.log('form发生了submit事件，携带数据为：', e.detail.value);
+        let data = e.detail.value;
+        data.imgFileIdArr = data.imgFileIdArr.split(',');
+        wx.cloud.callFunction({
+            name: 'saveArticle',
+            data,
+        })
+        .then(res => {
+            // res 不是我在云端reslove的呢
+            console.log('调用云函数成功', res)
+        })
+        .catch(error => {
+            console.log('调用云函数失败', error)
+        })
     },
     selectTypes (event) {
         console.log(event);
@@ -93,9 +106,9 @@ Page({
                         this.setData({
                             imgFileIdArr: afterUploadImgFileIdArr  
                         })
-                        // this.setData({
-
-                        // })
+                        this.setData({
+                            imgFileIdArrVal: afterUploadImgFileIdArr.join(',')
+                        })
                         console.log(this.data.itemUrlArr);
                         // 设置图片在视图层展示
                         this.setData({
