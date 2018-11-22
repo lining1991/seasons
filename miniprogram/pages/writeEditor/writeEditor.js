@@ -21,10 +21,12 @@ Page({
         imgCloudFilePathId: 0// 用来控制图片在云端存储时有一个唯一的名字
     },
     onLoad (options) {
-        // this.setData({
-        //     articleId: options.articleId
-        // })
-        // 需要设置imgCloudFilePathId
+        let {articleId, imgCloudFilePathId} = options;
+        this.setData({
+            articleId,
+            imgCloudFilePathId: Number(imgCloudFilePathId)
+        })
+        // 需要设置 imgCloudFilePathId
     },
     // 点击保存按钮，提交表单
     submitForm (e) {
@@ -38,6 +40,7 @@ Page({
         })
         .then(res => {
             // res 不是我在云端reslove的呢
+            // res.result 里边是云端的返回值
             console.log('调用云函数成功', res)
         })
         .catch(error => {

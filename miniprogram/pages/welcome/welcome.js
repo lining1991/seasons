@@ -53,5 +53,19 @@ Page({
         this.setData({
             tips: tipsArr[randomIndex]
         })
+    },
+    linkEditor () {
+        // 最好是做一个loadding
+        wx.cloud.callFunction({
+            name: 'generateArticle',
+            complete: res => {
+                console.log(res)
+                const articleId = res.result.articleId;
+                const imgCloudFilePathId = res.result.imgCloudFilePathId;
+                wx.navigateTo({
+                    url: `../writeEditor/writeEditor?articleId=${articleId}&imgCloudFilePathId=${imgCloudFilePathId}`
+                })
+            }
+        })
     }
 })

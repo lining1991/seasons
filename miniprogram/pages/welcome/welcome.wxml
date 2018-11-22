@@ -5,6 +5,6 @@
         <view class="nick-name">{{nickName}}</view>
     </view>
     <view class="tips">{{tips}}</view>
-    <navigator url="../writeEditor/writeEditor" class="link-button">去记录</navigator>
+    <view class="link-button" bindtap="linkEditor">去记录</view>
     <navigator url="../recordList/recordList" class="link-button">生活@愿景</navigator>
 </view>

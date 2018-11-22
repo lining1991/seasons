@@ -20,7 +20,8 @@
             <input type="text" name="imgFileIdArr[{{index}}]" value="{{item}}" wx:for="{{imgFileIdArr}}" wx:key="item" hidden/>
              -->
             <input type="text" name="imgFileIdArr" value="{{imgFileIdArrVal}}" hidden/>
-            <input type="text" name="imgGlobalId" value="{{imgCloudFilePathId}}" hidden/>
+            <input type="text" name="imgCloudFilePathId" value="{{imgCloudFilePathId}}" hidden/>
+            <input type="text" name="articleId" value="{{articleId}}" hidden/>
             <view class="upload-btn square-box" bindtap="uploadImage" hidden="{{itemUrlArr.length >= maxImgNum ? true : false}}">+</view>
         </view>
     </form>

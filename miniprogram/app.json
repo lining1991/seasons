@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/welcome/welcome",
     "pages/writeEditor/writeEditor",
     "pages/recordList/recordList",
-    "pages/welcome/welcome",
     "pages/recordDetail/recordDetail",
     "pages/index/index",
     "pages/userConsole/userConsole",
