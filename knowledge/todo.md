@@ -1,3 +1,5 @@
 -[] 关于vue关于[小程序](https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/page.html#pageprototypesetdataobject-data-function-callback)的声明周期
 -[] 需要找个去记录的图标
 -[] 关于是否展示授权的按钮还有些问题
+-[] 登录或者说用户系统的控制
+-[] 点击写记录按钮 需要弄一个防止重复点击
