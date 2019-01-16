@@ -59,7 +59,7 @@ Page({
         wx.cloud.callFunction({
             name: 'generateArticle',
             complete: res => {
-                console.log(res)
+                // 小程序做了一些封装，真正的数据在res.result里边
                 const articleId = res.result.articleId;
                 const imgCloudFilePathId = res.result.imgCloudFilePathId;
                 wx.navigateTo({

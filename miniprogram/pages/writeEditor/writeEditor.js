@@ -22,6 +22,7 @@ Page({
     },
     onLoad (options) {
         let {articleId, imgCloudFilePathId} = options;
+        console.log(articleId);
         this.setData({
             articleId,
             imgCloudFilePathId: Number(imgCloudFilePathId)
