@@ -1,15 +1,14 @@
 .page{
     padding: 15px;
 }
-.list-title{
-    line-height: 25px;
-    font-weight: bold;
-    border-bottom: 1rpx solid #ddd;
-}
 .list-item{
     font-size: 12px;
     line-height: 30px;
+    height: 30px;
     border-bottom: 1rpx solid #eee;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .list-wrapper{
     margin-bottom: 15px;

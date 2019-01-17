@@ -10,6 +10,7 @@
             <input type="text" name="types" value="{{activeIndex2}}" hidden/>
             <button plain="{{true}}" form-type="submit" class="submit-btn">保 存</button>
         </view>
+        <input type="text" name="title" placeholder="这里写下你的小标题吧" class="title-area"/>
         <textarea name="content" id="" maxlength="-1" placeholder="开始记录你的生活吧" auto-height="false"></textarea>
         <view class="upload-wrapper">
             <view class="square-box" wx:for="{{itemUrlArr}}" wx:key="item">

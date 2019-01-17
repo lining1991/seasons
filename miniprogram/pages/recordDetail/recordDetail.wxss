@@ -1,0 +1,20 @@
+.page{
+    padding: 20rpx 10rpx 0;
+}
+.title{
+    font-size: 16px;
+    line-height: 28px;
+    height: 28px;
+    border-bottom: 1px solid #f04848;
+    margin-bottom: 10px;
+}
+.content{
+    margin-bottom: 10px;
+}
+.small-pic{
+    border-radius: 1px;
+    width: 240rpx;
+    height: 240rpx;
+    margin-left: 10rpx;
+    margin-bottom: 5rpx;
+}

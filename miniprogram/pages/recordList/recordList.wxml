@@ -1,10 +1,9 @@
 <view class="page">
     <view class="list-box">
-       <view wx:for="{{recordsList}}" wx:for-index="index" wx:for-item="item" wx:key="type">
-            <view class="list-title">{{item.type}}</view>
-            <view class="list-wrapper">
-                <navigator url="../recordDetail/recordDetail?articleId={{record.articleId}}" class="list-item" wx:for="{{item.list}}" wx:for-item="record" wx:key="articleId">{{record.title}}</navigator>
-            </view>
+        <view wx:for="{{recordsList}}" wx:for-index="index" wx:for-item="item" wx:key="type">
+            <navigator url="../recordDetail/recordDetail?articleId={{item.articleId}}" class="list-item">
+                <text class="square">{{item.time}}</text> | {{item.content}}
+            </navigator>
         </view> 
     </view>
 </view>

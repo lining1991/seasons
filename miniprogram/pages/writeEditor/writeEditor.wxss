@@ -10,6 +10,10 @@ textarea{
     min-height: 100px;
     margin-bottom: 15px;
 }
+.title-area{
+    border-bottom: 1px solid #333;
+    margin-bottom: 10px;
+}
 .form-head{
     overflow: hidden;
     margin-bottom: 15px;

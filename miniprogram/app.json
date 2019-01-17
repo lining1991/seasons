@@ -2,8 +2,8 @@
   "pages": [
     "pages/welcome/welcome",
     "pages/writeEditor/writeEditor",
-    "pages/recordList/recordList",
     "pages/recordDetail/recordDetail",
+    "pages/recordList/recordList",
     "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -16,7 +16,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "生活小记录",
     "navigationBarTextStyle": "black"
   }
 }

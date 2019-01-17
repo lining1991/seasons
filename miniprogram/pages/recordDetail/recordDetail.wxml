@@ -1,3 +1,8 @@
 <view class="page">
-    这是一篇文章详情{{articleId}}
+    <view class="title">{{title}}</view>
+    <view class="content">{{content}}</view>
+    <view class="img-wrapper">
+        <image src="{{file.tempFileURL}}" mode="aspectFit" class="small-pic" wx:for="{{fileList}}" wx:for-item="file" wx:for-index="index" wx:key="index"></image>
+    </view>
+    <scroll-view scrll-x="true"></scroll-view>
 </view>
