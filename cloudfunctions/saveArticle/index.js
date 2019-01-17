@@ -15,19 +15,34 @@ exports.main = async (event, context) => {
     // return await testDB.collection('articles').add({
     //     data: event
     // })
+    // var ss = await add(3, 2);
     return new Promise((resolve, reject) => {
-        testDB.collection('articles').doc(articleId).set({
-            data: event
+        cloud.callFunction({
+            name: 'util'
         })
         .then(res => {
-            resolve(res);
-            // resolve({
-            //     error_code: 0,
-            //     error_msg: '文章提交成功'
-            // })
+            // var data = res.add({
+            //     a: 12,
+            //     b: 13
+            // });
+            resolve(res.result);
+            // console.log(res);
         })
+        // testDB.collection('articles').doc(articleId).set({
+        //     data: event
+        // })
+        // .then(res => {
+        //     resolve(ss);
+        // })
     })
 }
-function formatTime(){
-    
-}
+// function add(a, b){
+//     cloud.callFunction({
+//         name: 'util',
+//         data: [a, b],
+//     })
+//     .then(res => {
+//         console.log(res);
+//     })
+
+// }

@@ -11,4 +11,10 @@
 ```html
 3. 虽然在开发文档中，组件一项中，form章节没有提到点击提交按钮的时候，textarea的内容也可以被携带，但实际上是有的。
 4. input元素没有type="hidden"这个类型 用<input type="text" name="seasons" value="kk" hidden/> 就好了 注意有闭合结束符
-5. 
+5. 云函数的返回值里边不能和函数相关，也就是说不能返回一个函数 也不能返回一个对象，这个对象的某个属性值是个函数，这样的属性会被过滤掉
+6. wx:for="{{arrData}}" wx:for-item="itemName"
+7. 
+```html
+    <image src="{{url}}" mode="aspectFit" data-id="hh" data-file="123"></image>
+    // target.dataset.file
+```html
